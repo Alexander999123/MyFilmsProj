@@ -1,0 +1,120 @@
+.container__main-films{
+    width: max-content;
+    box-sizing: border-box;
+    height: 100%;
+    width: 900px;
+    /* max-height: 800px; */
+    /* overflow-y: auto; */
+}
+
+/* .container__film-efect{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+
+    background: linear-gradient(-47deg, rgba(1,1,1,.7),46%, transparent);
+    transition: all 1s ease;
+    transform: rotate(180deg);
+}
+
+.container__film-efect:hover{
+    width: 0px;
+    transition: all 1s ease;
+} */
+
+.container__film{
+    position: relative;
+    width: 900px;
+    height: 250px;
+    display: flex;
+    background-color: rgba(255,167,60,.8);
+    box-shadow: 8px 7px 13px -7px;
+    /* margin: 10px; */
+    transition: all .5s ease;
+}
+.container__film:hover{
+    cursor: pointer;
+    margin-left: 20px;
+    transition: all .5s ease;
+    box-shadow: 8px 7px 13px -7px;
+    /* background-color: rgba(255,167,60,1); */
+    margin: 10px 10px;
+}
+.container__film-discription{
+    display: block;
+    padding: 10px 10px;
+    box-sizing: border-box;
+    height: 180px;
+    overflow-x: auto;
+}
+.film-dicription{
+    text-overflow: clip;
+    display: block;
+    box-sizing: border-box;
+}
+.container__film-img{
+    height: 100%;
+}
+.img-film{
+    height: 100%;
+    width: 160px;
+}
+.container__info-film{
+    /* display: flex; */
+    display: flex;
+    align-items: center;
+    width: 100%;
+    flex-direction: column;
+}
+.container__film-name{
+    width: 95%;
+    box-shadow: 1px 1px 8px -1px;
+    text-align: center;
+}
+.film-name{
+    font-size: 32px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+/* MENU LIST */
+
+.container__menu-list{
+    background-color: black;
+    width: 100%;
+    height: 20px;
+    display: flex;
+    margin-bottom: 10px
+    /* align-items: center; */
+    /* justify-content: center; */
+}
+.menu-list{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    color: rgba(255,167,60,.8);
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    /* text-align: center; */
+    transition: all .5s ease;
+}
+.menu-item{
+    /* width: 30px; */
+    float: left;
+    padding: 0px 10px;
+    display: inherit;
+    /* text-align: center; */
+    cursor: pointer;
+    transition: all .5s ease;
+}
+.menu-item:hover{
+    background: white;
+    color: black;
+    transition: all .5s ease;
+}
+.menu-item__active{
+    background: white;
+    color: black;
+}
