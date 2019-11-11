@@ -13,17 +13,27 @@ class MovieList extends Component {
 
     async addFilm(movie){
         const METHOD = "POST";
-        this.ReqestToServer(METHOD, this.URL, {movie});
+        console.log("start");
+        let res = await this.ReqestToServer(METHOD, this.URL, {movie});
+        if(res === "Successfully"){
+            viewRestart();
+        }
     }
 
     async deleteFilm(id){
         const METHOD = "DELETE";
         this.ReqestToServer(METHOD, this.URL, {"id":id}); 
+        if(res === "Successfully"){
+            viewRestart();
+        }
     }
 
     async editFilm(id, options){
         const METHOD = "PUT";
-        this.ReqestToServer(METHOD, this.URL, {"id":id, options});
+        let res = await this.ReqestToServer(METHOD, this.URL, {"id":id, options});
+        if(res === "Successfully"){
+            viewRestart();
+        }
     }
 
     async getByOptions(options){

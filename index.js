@@ -37,4 +37,16 @@ async function main(){
     window.movieView = movieView;
     window.movieList = movieList;
 }
+ 
+window.viewRestart = async function restart(){
+    movieView.clear();
+    movieView.removePageMenu();
+    movieList.list = [];
+    movieView.pagesElements = [];
+    
+    await movieList.setFilmsList();
+    movieView.setPages(movieList.list);
 
+    movieView.showViewFilm(movieView.createViewFilms(movieView.pagesElements[0]))
+    movieView.setListPagesMenu();
+}

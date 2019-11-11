@@ -108,6 +108,10 @@ class MovieView {
             containerMenuList.append(menuList);
         }
     }
+
+    removePageMenu(){
+        document.querySelector(`.${this.classView.containerMenuList}`).remove();
+    }
     
     clear(){
         let elFilms = this.element.querySelectorAll(`.${this.classView.containerFilm}`);
