@@ -13,7 +13,6 @@ class MovieList extends Component {
 
     async addFilm(movie){
         const METHOD = "POST";
-        console.log("start");
         let res = await this.ReqestToServer(METHOD, this.URL, {movie});
         if(res === "Successfully"){
             viewRestart();
@@ -22,7 +21,7 @@ class MovieList extends Component {
 
     async deleteFilm(id){
         const METHOD = "DELETE";
-        this.ReqestToServer(METHOD, this.URL, {"id":id}); 
+        let res = await this.ReqestToServer(METHOD, this.URL, {"id":id}); 
         if(res === "Successfully"){
             viewRestart();
         }
