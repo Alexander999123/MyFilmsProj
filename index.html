@@ -9,16 +9,36 @@
     <script src="./moduls/movie.js" defer></script>
     <script src="./moduls/genre.js" defer></script>
     <script src="./views/movie-view.js" defer></script>
+    <script src="./views/modal-view.js" defer></script>
     <script src="index.js" defer></script>
     <title>Document</title>
 </head>
 <body>
+    <button class="button__add-film">add new film</button>
     <div id="films" class="container__main-films">
         
     </div>
-
+    
     <div id="genre" class="container__genres">
         
+    </div>
+    
+    <div class="modal__window-viwe-film">
+        <div class="model__box">     
+            <div class="modal__img-film">
+                <img src="" alt="" class="img-modal-film">
+            </div>
+            <div class="modal__input-forma">
+                Название фильма: <input type="text" name="" id="nameFilm">
+                Ссылка на картинку: <input type="text" name="" id="srcImg">
+                Описание фильма: <textarea id="filmDiscription"></textarea>
+            </div>   
+            <div class="modal__buttons">
+                <button class="movie-edit">save</button>
+                <button class="movie-cansel">cansel</button>
+                <button class="move-delete">delete</button>
+            </div>
+        </div>
     </div>
 </body>
 </html>

@@ -27,9 +27,9 @@ class MovieView {
         let fragmentElemenst = document.createDocumentFragment('div');
 
         movieList.forEach(movie => {
+            //create elements
             let containerFilm = document.createElement('div'),
                 containerFilmImg = document.createElement('div'),
-                //containerFilmEfect = document.createElement('div'),
                 containerFilmName = document.createElement('div'),
                 containerInfoFilm = document.createElement('div'),  
                 containerFilmDiscription = document.createElement('div'),
@@ -37,37 +37,36 @@ class MovieView {
                 spanFilmName = document.createElement('span'),
                 imgFilm = document.createElement('img')
 
-            { // add class 
-                containerFilm.classList.add(this.classView.containerFilm);
-                //containerFilmEfect.classList.add(this.classView.containerFilmEfect)
-                containerFilmImg.classList.add(this.classView.containerFilmImg);
-                containerFilmName.classList.add(this.classView.containerFilmName);
-                containerInfoFilm.classList.add(this.classView.containerInfoFilm)
-                containerFilmDiscription.classList.add(this.classView.containerFilmDiscription);
-                spanFilmDiscription.classList.add(this.classView.filmDiscription);
-                spanFilmName.classList.add(this.classView.filmName);
-                imgFilm.classList.add(this.classView.img);
-            }
+            //add class 
+            containerFilm.classList.add(this.classView.containerFilm);
+            containerFilmImg.classList.add(this.classView.containerFilmImg);
+            containerFilmName.classList.add(this.classView.containerFilmName);
+            containerInfoFilm.classList.add(this.classView.containerInfoFilm)
+            containerFilmDiscription.classList.add(this.classView.containerFilmDiscription);
+            spanFilmDiscription.classList.add(this.classView.filmDiscription);
+            spanFilmName.classList.add(this.classView.filmName);
+            imgFilm.classList.add(this.classView.img);
 
-            { // add all info about film in element
-                imgFilm.src = movie.srcImage;
-                spanFilmName.textContent = movie.Title;
-                spanFilmDiscription.innerHTML = movie.Description
-            }
+            //add all info about film in element
+            imgFilm.src = movie.srcImage;
+            spanFilmName.textContent = movie.Title;
+            spanFilmDiscription.innerHTML = movie.Description
+        
+            //add atributes
+            containerFilm.setAttribute("data-id", movie.ID)
+            containerFilm.addEventListener('click', this.editViewFilm);
 
-            { // append elments
-                containerFilmImg.append(imgFilm);
-                containerFilmName.append(spanFilmName);
-                containerFilmDiscription.append(spanFilmDiscription);
+            //append elments
+            containerFilmImg.append(imgFilm);
+            containerFilmName.append(spanFilmName);
+            containerFilmDiscription.append(spanFilmDiscription);
 
-                containerInfoFilm.append(containerFilmName);
-                containerInfoFilm.append(containerFilmDiscription);
+            containerInfoFilm.append(containerFilmName);
+            containerInfoFilm.append(containerFilmDiscription);
 
-                containerFilm.append(containerFilmImg)
-                //containerFilm.append(containerFilmEfect)
-                containerFilm.append(containerInfoFilm)
-                fragmentElemenst.append(containerFilm)
-            }
+            containerFilm.append(containerFilmImg);
+            containerFilm.append(containerInfoFilm);
+            fragmentElemenst.append(containerFilm);
         });
         
         return fragmentElemenst;
@@ -105,8 +104,8 @@ class MovieView {
 
                 menuList.append(itemMenu);
             }
+            this.element.prepend(containerMenuList);
             containerMenuList.append(menuList);
-            this.element.prepend    (containerMenuList);
         }
     }
     
@@ -115,14 +114,18 @@ class MovieView {
         elFilms.forEach(el => el.remove());
     }
     
-    delteViewFilm(id){
-        //this.element.removeChild();
+    delteViewFilm(idFilm){
+        //this.element.removeChild(id);
     }
 
-    editViewFilm(id, options){
-        
-    }
-    
+    editViewFilm(){
+        let movie = movieList.list.find(x=>x.ID === this.getAttribute("data-id"));
+        modalView.buttonSave.textContent = "edit";
+        modalView.buttonDelete.style.display = "block";
+        modalView.setInformation(movie);
+        modalView.toggleElement();
+    }   
+
     showViewFilm(fragment){
         this.element.append(fragment);
     }

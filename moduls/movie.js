@@ -14,7 +14,6 @@ class MovieList extends Component {
     async addFilm(movie){
         const METHOD = "POST";
         this.ReqestToServer(METHOD, this.URL, {movie});
-        this.setFilmsList();
     }
 
     async deleteFilm(id){
@@ -24,7 +23,7 @@ class MovieList extends Component {
 
     async editFilm(id, options){
         const METHOD = "PUT";
-        this.ReqestToServer(METHOD, this.URL, {"id":id, options:{options}});
+        this.ReqestToServer(METHOD, this.URL, {"id":id, options});
     }
 
     async getByOptions(options){

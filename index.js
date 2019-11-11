@@ -1,10 +1,10 @@
 
-main();
+window.pageRestart = main();
 
 async function main(){
     let movieList = new MovieList("#films");
     let genresList = new GenresList("#genre");
-
+    
     await Promise.all(
         [
             movieList.setFilmsList(), 
@@ -12,13 +12,29 @@ async function main(){
         ]
     );
 
+    let modalView = new ModalViwe(
+        {
+            "modalWindow":"modal__window-viwe-film",
+            "inputImg":"srcImg",
+            "inputNameFilm":"nameFilm",
+            "description":"filmDiscription",
+            "save":"movie-edit",
+            "add":"button__add-film",
+            "close":"movie-cansel",
+            "delete":"move-delete",
+            "imgContainer":"img-modal-film"
+        }
+    );
+    
     let movieView = new MovieView(movieList.elementBase);
-    window.movieView = movieView;
 
     movieView.setPages(movieList.list);
 
-    console.log(movieView.pagesElements);
-
     movieView.showViewFilm(movieView.createViewFilms(movieView.pagesElements[0]))
     movieView.setListPagesMenu();
+
+    window.modalView = modalView;
+    window.movieView = movieView;
+    window.movieList = movieList;
 }
+

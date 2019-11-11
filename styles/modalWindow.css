@@ -1,0 +1,48 @@
+.modal__window-viwe-film{
+    width: 100%;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 1;
+    background-color: rgba(0,0,0,.3);
+    /* display: flex; */
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.model__box{
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    background-color: brown;
+    width: 350px;
+}
+.modal__img-film{
+    display: flex;
+    justify-content: center;
+}
+.img-modal-film{
+    height: 350px;
+    width: 250px;
+}
+.modal__input-forma{
+    display: flex;
+    flex-direction: column;
+    color: burlywood;
+}
+.modal__buttons{}
+.movie-save{}
+.movie-cansel{}
+.move-delete{
+    float: right;
+}
+
+#nameFilm{}
+#srcImg{}
+#filmDiscription{
+    height: 95px;
+}
+
